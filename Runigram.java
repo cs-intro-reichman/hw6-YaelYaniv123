@@ -107,7 +107,7 @@ public class Runigram {
 		int red = pixel.getRed();
 		int green = pixel.getGreen();
 		int blue = pixel.getBlue();
-		int lum = (int) Math.round(0.299 * red + 0.587 * green + 0.114 * blue);
+		int lum = (int) (0.299 * red + 0.587 * green + 0.114 * blue);
 		Color newColor = new Color(lum,lum,lum);
 		return newColor;
 	}
@@ -120,7 +120,8 @@ public class Runigram {
 		Color[][] newImage = new Color[image.length][image[0].length];
 		for (int i = 0; i < image.length; i++) {
 			for (int j = 0; j < image[0].length; j++) {
-				newImage[i][j] = luminance(image[i][j]);
+				Color lumi = luminance(image[i][j]);
+				newImage[i][j] = lumi;
 			}
 		}
 		return newImage;
